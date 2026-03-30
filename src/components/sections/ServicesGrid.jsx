@@ -1,4 +1,6 @@
+import AnimatedCard from '../AnimatedCard.jsx'
 import { serviceCards, whatWeBuild } from '../../config/homeContent.js'
+import FloatUpText from '../floatUpText.jsx'
 
 function ServiceIcon({ label }) {
   return (
@@ -16,7 +18,7 @@ function ServicesGrid() {
       <div className="container-default">
 
         {/* HEADER */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <FloatUpText className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-sm text-black/60 mb-3">
             {whatWeBuild.eyebrow}
           </p>
@@ -28,13 +30,13 @@ function ServicesGrid() {
           <p className="mt-4 text-black/60">
             {whatWeBuild.description}
           </p>
-        </div>
+        </FloatUpText>
 
         {/* GRID */}
         <div className="grid max-w-5xl mx-auto grid-cols-4 grid-rows-10 gap-6">
 
           {/* AI BIG */}
-          <div className="col-span-2 row-span-7 rounded-lg border border-black/10 overflow-hidden flex flex-col">
+          <AnimatedCard delay={0} className="col-span-2 row-span-7 rounded-lg border border-black/10 overflow-hidden flex flex-col bg-white">
             <div className="p-8">
               <ServiceIcon label="AI" />
 
@@ -56,10 +58,10 @@ function ServicesGrid() {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </AnimatedCard>
 
           {/* TESTING */}
-          <div className="col-span-2 row-span-4 rounded-lg border border-black/10 overflow-hidden grid grid-cols-2">
+          <AnimatedCard delay={120} className="col-span-2 row-span-4 rounded-lg border border-black/10 overflow-hidden grid grid-cols-2 bg-white">
             <img
               src={testing.image}
               alt={testing.title}
@@ -81,10 +83,10 @@ function ServicesGrid() {
                 Learn →
               </p>
             </div>
-          </div>
+          </AnimatedCard>
 
           {/* INTEGRATION (MERGED) */}
-          <div className="col-span-2 row-span-6 rounded-lg border border-black/10 overflow-hidden flex flex-col">
+          <AnimatedCard delay={240} className="col-span-2 row-span-6 rounded-lg border border-black/10 overflow-hidden flex flex-col bg-white">
             <div className="p-8">
               <ServiceIcon label="Integration" />
 
@@ -106,10 +108,10 @@ function ServicesGrid() {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </AnimatedCard>
 
           {/* IoT */}
-          <div className="col-span-1 row-span-3 rounded-lg border border-black/10 p-6">
+          <AnimatedCard delay={360} className="col-span-1 row-span-3 rounded-lg border border-black/10 p-6 bg-white">
             <ServiceIcon label="IoT" />
 
             <h3>{iot.title}</h3>
@@ -121,10 +123,10 @@ function ServicesGrid() {
             <p className="mt-4 font-medium">
               Learn →
             </p>
-          </div>
+          </AnimatedCard>
 
           {/* Data */}
-          <div className="col-span-1 row-span-3 rounded-lg border border-black/10 p-6">
+          <AnimatedCard delay={480} className="col-span-1 row-span-3 rounded-lg border border-black/10 p-6 bg-white">
             <ServiceIcon label="Data" />
 
             <h3>{data.title}</h3>
@@ -136,7 +138,7 @@ function ServicesGrid() {
             <p className="mt-4 font-medium">
               Learn →
             </p>
-          </div>
+          </AnimatedCard>
 
         </div>
       </div>

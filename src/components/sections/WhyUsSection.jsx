@@ -29,38 +29,30 @@ function WhyUsSection() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-col items-center rounded-lg border border-black/10 p-10 text-center">
-              <div className="mb-6 text-xl">⌘</div>
+          <div className="grid gap-4 xl:grid-cols-3">
+            {whyUs.cards.map((card, index) => (
+              <div
+                key={card.title}
+                className="flex h-full flex-col items-start rounded-lg border border-black/10 p-6 text-left md:p-7"
+              >
+                <div className="mb-4 flex size-10 items-center justify-center rounded-full border border-black/10 text-xs font-semibold text-black/70">
+                  0{index + 1}
+                </div>
 
-              <h3>
-                {whyUs.cards[0].title}
-              </h3>
+                <h3 className="text-[22px] leading-[1.15] md:text-[24px]">
+                  {card.title}
+                </h3>
 
-              <p className="mt-3 text-black/70">
-                {whyUs.cards[0].description}
-              </p>
+                <p className="mt-3 text-[14px] leading-6 text-black/70 md:text-[15px]">
+                  {card.description}
+                </p>
 
-              <p className="mt-6 font-medium">
-                Learn →
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center rounded-lg border border-black/10 p-10 text-center">
-              <div className="mb-6 text-xl">⌘</div>
-
-              <h3>
-                {whyUs.cards[1].title}
-              </h3>
-
-              <p className="mt-3 text-black/70">
-                {whyUs.cards[1].description}
-              </p>
-
-              <p className="mt-6 font-medium">
-                Explore →
-              </p>
-            </div>
+                <p className="mt-5 inline-flex items-center gap-2 text-sm font-medium">
+                  <span>{card.ctaLabel}</span>
+                  <span aria-hidden="true">→</span>
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

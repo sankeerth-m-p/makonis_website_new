@@ -9,7 +9,7 @@ function WhatWeBuild() {
             {whatWeBuild.eyebrow}
           </p>
           <h2 className="mt-4">{whatWeBuild.title}</h2>
-          <p className="mt-5">{whatWeBuild.description}</p>
+          <p className="mt-5"> {whatWeBuild.description}</p>
         </div>
       </div>
     </section>

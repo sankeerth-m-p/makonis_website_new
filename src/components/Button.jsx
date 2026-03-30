@@ -15,6 +15,9 @@ function Button({
 
     light:
       "bg-white text-makonis-navy border border-black/10 hover:border-makonis-navy hover:text-makonis-navy",
+
+    outline:
+      "border border-white/20 bg-transparent text-white hover:border-white/40 hover:bg-white/10",
   }
 
   return (

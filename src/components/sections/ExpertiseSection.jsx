@@ -1,45 +1,44 @@
 import Button from '../Button.jsx'
 import { expertiseBand } from '../../config/homeContent.js'
+import FloatUpText from '../floatUpText.jsx'
 
 function ExpertiseSection() {
   return (
-  <section className="bg-makonis-navy text-white min-h-[80vh] flex items-center">
-  <div className="container-default w-full">
+    <section className="flex min-h-[80vh] items-center bg-makonis-navy text-white">
+      <div className="container-default w-full">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <FloatUpText className="max-w-xl">
+            <p className="mb-4 text-sm text-makonis-white/70">
+              {expertiseBand.eyebrow}
+            </p>
 
-    <div className="grid items-center gap-12 lg:grid-cols-2">
+            <h1 className="text-white">
+              {expertiseBand.title}
+            </h1>
 
-      {/* LEFT */}
-      <div className="max-w-xl">
-        <p className="text-sm text-makonis-white/70 mb-4">
-          {expertiseBand.eyebrow}
-        </p>
+            <p className="mt-6 text-makonis-white/80">
+              {expertiseBand.description}
+            </p>
 
-        <h1 className="text-white">
-          {expertiseBand.title}
-        </h1>
+            <Button variant="light" className="mt-8">
+              {expertiseBand.ctaLabel || 'Explore'}
+            </Button>
+          </FloatUpText>
 
-        <p className="mt-6 text-makonis-white/80">
-          {expertiseBand.description}
-        </p>
+          <div className="w-full">
+            <div className="relative w-full">
+              <div className="absolute inset-0 rounded-xl bg-makonis-purple/10 blur-2xl" />
 
-        <Button variant="light" className="mt-8">
-          {expertiseBand.ctaLabel || 'Explore'}
-        </Button>
+              <img
+                src={expertiseBand.image}
+                alt={expertiseBand.title}
+                className="relative h-[420px] w-full animate-floatSlow rounded-lg object-cover transition-transform duration-700 hover:scale-[1.02]"
+              />
+            </div>
+          </div>
+        </div>
       </div>
-
-      {/* RIGHT */}
-      <div className="w-full">
-        <img
-          src={expertiseBand.image}
-          alt={expertiseBand.title}
-          className="w-full h-[420px] object-cover rounded-lg"
-        />
-      </div>
-
-    </div>
-
-  </div>
-</section>
+    </section>
   )
 }
 

@@ -172,21 +172,32 @@ export const expertiseCards = [
 
 export const whyUs = {
   main: {
-    eyebrow: 'Why',
-    title: 'Technology that leads',
-    description: 'We build what others struggle to imagine',
+    eyebrow: 'Why Makonis',
+    title: 'Technology partners built for enterprise scale',
+    description:
+      'We combine product engineering, platform delivery, talent solutions, and semiconductor expertise to help teams move faster with less friction.',
     image:
-      'https://images.unsplash.com/photo-1581091870627-3a52a4e7f7c1?auto=format&fit=crop&w=1400&q=80',
+      'https://images.pexels.com/photos/6931205/pexels-photo-6931205.jpeg',
   },
 
   cards: [
     {
       title: 'Deep technical knowledge',
-      description: "We stay ahead of what's next",
+      description:
+        'Teams that understand AI, cloud, embedded systems, and enterprise delivery from the inside out.',
+      ctaLabel: 'Learn more',
     },
     {
-      title: 'Your success is ours',
-      description: 'Years of solving hard problems',
+      title: 'End-to-end delivery',
+      description:
+        'From discovery and build to integration and support, we stay close through the full product lifecycle.',
+      ctaLabel: 'See how',
+    },
+    {
+      title: 'Talent that fits',
+      description:
+        'Specialists who plug into your team quickly and adapt to the way your business already works.',
+      ctaLabel: 'Meet the team',
     },
   ],
 }

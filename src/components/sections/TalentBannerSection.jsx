@@ -1,5 +1,6 @@
 import Button from '../Button.jsx'
 import { talentBanner } from '../../config/homeContent.js'
+import FloatUpText from '../floatUpText.jsx'
 
 function TalentBannerSection() {
   return (
@@ -21,7 +22,7 @@ function TalentBannerSection() {
           <div className="grid w-full gap-10 lg:grid-cols-2">
 
             {/* LEFT */}
-            <div className="max-w-xl">
+            <FloatUpText className="max-w-xl">
               <p className="text-makonis-white/80">
                 {talentBanner.eyebrow}
               </p>
@@ -30,7 +31,7 @@ function TalentBannerSection() {
               <h1 className="mt-6 text-white">
                 {talentBanner.title}
               </h1>
-            </div>
+            </FloatUpText>
 
             {/* RIGHT */}
             <div className="flex items-end lg:justify-end">
