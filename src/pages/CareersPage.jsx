@@ -88,7 +88,7 @@ function CareersPage() {
         </div>
       </section>
 
-      <section id="careers-openings" className="bg-white py-16 md:py-20">
+      <section id="careers-openings" className="bg-white  py-16 md:py-20">
         <div className="container-default">
           <FloatUpText className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-makonis-blue">

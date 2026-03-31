@@ -64,12 +64,15 @@ function applyProgress(
   heroDesc,
   cards,
 ) {
-  const layoutRaw = clamp01(p / 0.55)
+  // Animation completes at p=0.5 — the second half is dwell time at stage 2
+  const anim = clamp01(p * 2)
+
+  const layoutRaw = clamp01(anim / 0.55)
   const layout = easeInOutCubic(layoutRaw)
-  const cardsRaw = clamp01((p - 0.15) / 0.5)
+  const cardsRaw = clamp01((anim - 0.15) / 0.5)
   const cardsP = easeInOutCubic(cardsRaw)
   const vPad = lerp(0, 24, layout)
-  const textT = easeInOutCubic(clamp01(p / 0.75))
+  const textT = easeInOutCubic(clamp01(anim / 0.75))
 
   container.style.padding = '0px'
   container.style.gap = `${lerp(0, 16, layout)}px`
@@ -222,7 +225,7 @@ function WhyUsMobile() {
   )
 }
 
-// ─── Desktop scroll-animated layout (untouched) ──────────────────────────────
+// ─── Desktop scroll-animated layout ──────────────────────────────────────────
 
 function WhyUsScrollSection() {
   const sectionRef = useRef(null)
@@ -284,6 +287,17 @@ function WhyUsScrollSection() {
         trigger: section,
         start: 'top top',
         end: 'bottom top',
+
+        // Stage 1 = p:0  →  Stage 2 = p:0.5
+        // p:0.5 → 1.0 is pure dwell time: layout is frozen at stage 2
+        // so user can read it before the section unpins
+        snap: {
+          snapTo: [0, 0.5],
+          duration: 0.55,
+          ease: 'power2.inOut',
+          delay: 0.05,
+        },
+
         onUpdate(self) {
           if (tweenRef) tweenRef.kill()
           applyProgress(
@@ -301,6 +315,7 @@ function WhyUsScrollSection() {
           state.progress = self.progress
         },
         onLeave() {
+          // User scrolled past the whole section — visually already at stage 2
           snap(
             1,
             state,
@@ -313,14 +328,13 @@ function WhyUsScrollSection() {
             heroTitle,
             heroDesc,
             cards,
-            (tw) => {
-              tweenRef = tw
-            },
+            (tw) => { tweenRef = tw },
           )
         },
         onEnterBack() {
+          // Re-entering from below — restore stage 2
           snap(
-            0,
+            0.5,
             state,
             container,
             hero,
@@ -331,12 +345,11 @@ function WhyUsScrollSection() {
             heroTitle,
             heroDesc,
             cards,
-            (tw) => {
-              tweenRef = tw
-            },
+            (tw) => { tweenRef = tw },
           )
         },
         onLeaveBack() {
+          // Scrolled back above section — restore stage 1
           snap(
             0,
             state,
@@ -349,49 +362,10 @@ function WhyUsScrollSection() {
             heroTitle,
             heroDesc,
             cards,
-            (tw) => {
-              tweenRef = tw
-            },
+            (tw) => { tweenRef = tw },
           )
         },
       })
-
-      let scrollEndTimer = null
-
-      const onScroll = () => {
-        clearTimeout(scrollEndTimer)
-
-        scrollEndTimer = setTimeout(() => {
-          if (tweenRef?.isActive()) return
-          const trigger = ScrollTrigger.getAll().find((t) => t.vars.trigger === section)
-          if (!trigger) return
-          const p = trigger.progress
-          if (p <= 0 || p >= 1) return
-
-          snap(
-            p < 0.5 ? 0 : 1,
-            state,
-            container,
-            hero,
-            heroImg,
-            heroOverlay,
-            heroText,
-            heroEyebrow,
-            heroTitle,
-            heroDesc,
-            cards,
-            (tw) => {
-              tweenRef = tw
-            },
-          )
-        }, 150)
-      }
-
-      window.addEventListener('scroll', onScroll, { passive: true })
-      return () => {
-        window.removeEventListener('scroll', onScroll)
-        clearTimeout(scrollEndTimer)
-      }
     }, section)
 
     return () => ctx.revert()

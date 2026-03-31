@@ -71,6 +71,12 @@ export const whatWeBuild = {
     'Intelligent systems that solve real problems',
 }
 
+export const allServicesPage = {
+  eyebrow: 'Everything we do',
+  title: 'All services',
+  description: 'The full range of what we build, integrate, and protect.',
+}
+
 export const serviceCards = {
   ai: {
     label: 'AI',
@@ -108,6 +114,22 @@ export const serviceCards = {
     title: 'Data analytics',
     description: 'Insights from data at enterprise scale',
     href: '/services/data',
+  },
+
+  cloud: {
+    label: 'Cloud',
+    href: '/services/cloud',
+    title: 'Cloud Infrastructure',
+    description: 'Scalable cloud architecture built for reliability and growth.',
+    image: '/images/services/cloud.jpg',
+  },
+
+  cyber: {
+    label: 'Cyber',
+    href: '/services/cybersecurity',
+    title: 'Cybersecurity',
+    description: 'End-to-end protection for your systems, data, and people.',
+    image: '/images/services/cyber.jpg',
   },
 }
 

@@ -1,43 +1,161 @@
-import Button from '../Button.jsx'
+import { useState } from 'react'
 import { expertiseBand } from '../../config/homeContent.js'
 import FloatUpText from '../floatUpText.jsx'
 
+const services = [
+  {
+    title: 'RTL Design & Development',
+    description: 'Architecture definition, micro-architecture, and high-performance RTL coding.',
+    href: '/services/rtl-design',
+    icon: '/service_icons/rtl-design.png',
+  },
+  {
+    title: 'Physical Design',
+    description: 'GDSII delivery including floorplanning, placement, CTS, and routing for advanced nodes.',
+    href: '/services/physical-design',
+    icon: '/service_icons/physical-design.png',
+  },
+  {
+    title: 'FPGA Design',
+    description: 'Custom FPGA solutions, hardware acceleration, and IP core development.',
+    href: '/services/fpga-design',
+    icon: '/service_icons/fpga-design.png',
+  },
+  {
+    title: 'Design Consulting',
+    description: 'Strategic consulting to optimize design flows, methodology, and PPA targets.',
+    href: '/services/consulting',
+    icon: '/service_icons/design-consulting.png',
+  },
+  {
+    title: 'Design Verification',
+    description: 'Functional and physical verification using UVM for first-pass silicon success.',
+    href: '/services/verification',
+    icon: '/service_icons/design-verification.png',
+  },
+  {
+    title: 'DFT',
+    description: 'Scan insertion, ATPG, and MBIST strategies to maximise test coverage and yield.',
+    href: '/services/dft',
+    icon: '/service_icons/dft.png',
+  },
+  {
+    title: 'Post-Silicon Validation',
+    description: 'Silicon bring-up, characterisation, and debugging under real-world conditions.',
+    href: '/services/post-silicon',
+    icon: '/service_icons/post-silicon.png',
+  },
+]
+
 function ExpertiseSection() {
+  const [showServices, setShowServices] = useState(false)
+
   return (
-    <section className="flex min-h-[80vh] py-5 items-center bg-makonis-navy text-white">
-      <div className="container-default w-full">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <FloatUpText className="max-w-xl">
-            <p className="mb-4 text-sm text-makonis-white/70">
-              {expertiseBand.eyebrow}
-            </p>
+    <section className="flex max-h-[calc(100vh-var(--navbar-height))] overflow-hidden bg-makonis-navy text-white py-5">
+      <div
+        className="flex w-full items-stretch transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)]"
+        style={{ transform: showServices ? 'translateX(-100%)' : 'translateX(0)' }}
+      >
 
-            <h1 className="text-white">
-              {expertiseBand.title}
-            </h1>
+        {/* Panel 1: Hero content */}
+        <div className="min-w-full">
+          <div className="container-default flex min-h-[calc(100vh-var(--navbar-height))] w-full items-center">
+            <div className="grid w-full items-center gap-12 lg:grid-cols-2">
+              <FloatUpText className="max-w-2xl">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
+                  {expertiseBand.eyebrow}
+                </p>
 
-            <p className="mt-6 text-makonis-white/80">
-              {expertiseBand.description}
-            </p>
+                <h1 className="max-w-[12ch] text-white">
+                  {expertiseBand.title}
+                </h1>
 
-            <Button variant="light" className="mt-8">
-              {expertiseBand.ctaLabel || 'Explore'}
-            </Button>
-          </FloatUpText>
+                <p className="mt-5 max-w-xl text-white/80">
+                  {expertiseBand.description}
+                </p>
 
-          <div className="w-full">
-            <div className="relative w-full">
-              <div className="absolute inset-0 rounded-xl bg-makonis-purple/10 blur-2xl" />
+                <button
+                  onClick={() => setShowServices(true)}
+                  className="mt-8 inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/10 px-5 py-2.5 text-[15px] font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/20 hover:gap-3"
+                >
+                  {expertiseBand.ctaLabel || 'Our Core Capabilities'}
+                  <span className="text-makonis-cyan">&rarr;</span>
+                </button>
+              </FloatUpText>
 
-              {/* ↓ reduced fixed height on mobile */}
-              <img
-                src={expertiseBand.image}
-                alt={expertiseBand.title}
-                className="relative h-[260px] lg:h-[420px] w-full animate-floatSlow rounded-lg object-cover transition-transform duration-700 hover:scale-[1.02]"
-              />
+              <div className="w-full">
+                <div className="relative w-full">
+                  <div className="absolute inset-0 rounded-xl bg-makonis-purple/10 blur-2xl" />
+                  <img
+                    src={expertiseBand.image}
+                    alt={expertiseBand.title}
+                    className="relative h-[260px] w-full animate-floatSlow rounded-lg object-cover transition-transform duration-700 lg:h-[420px] hover:scale-[1.02]"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Panel 2: Services grid */}
+        <div className="min-w-full">
+          <div className="container-default flex min-h-[calc(100vh-var(--navbar-height))] w-full items-center py-8 md:py-12">
+            <div className="w-full">
+
+              <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div className="max-w-2xl">
+                  <p className="mb-3  font-semibold uppercase tracking-[0.18em] text-white/60">
+                    Our Core Capabilities
+                  </p>
+                  
+                </div>
+                <button
+                  onClick={() => setShowServices(false)}
+                  className="inline-flex items-center gap-2 self-start rounded-md border border-white/20 px-4 py-2 text-[15px] font-semibold text-white/70 transition-all duration-200 hover:border-white/30 hover:text-white"
+                >
+                  &larr; Back
+                </button>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {services.map((service, i) => (
+                  <a
+                    key={service.href}
+                    href={service.href}
+                    className="group relative flex flex-col gap-3 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-makonis-cyan/40 hover:bg-white/10 md:p-4.5"
+                    style={{ animationDelay: `${i * 60}ms` }}
+                  >
+                    {/* Icon */}
+                    <div className="h-12 w-12 overflow-hidden rounded-lg transition-transform duration-300 group-hover:scale-110">
+                     <img
+  src={service.icon}
+  alt={service.title}
+  className="h-full w-full object-cover"
+  
+/>
+                    </div>
+
+                    <div className="flex-1">
+                      <h3 className="mb-1.5 text-[18px] leading-[1.15] text-white md:text-[20px]">
+                        {service.title}
+                      </h3>
+                      <p className="text-[13px] leading-5 text-white/68">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    <span className="flex items-center gap-1 text-[13px] font-semibold text-makonis-cyan/70 transition-all duration-200 group-hover:gap-2 group-hover:text-makonis-cyan">
+                      Explore &rarr;
+                    </span>
+
+                    <div className="absolute right-3 top-3 h-1 w-1 rounded-full bg-makonis-cyan/0 transition-colors duration-300 group-hover:bg-makonis-cyan/60" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   )

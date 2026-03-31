@@ -157,13 +157,13 @@ function AboutPage() {
 
       <section id="leadership" className="bg-white py-16 md:py-20">
         <div className="container-default">
-          <FloatUpText className="mx-auto max-w-3xl text-center">
+          <FloatUpText className="mx-auto max-w-4xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-makonis-blue">
               Leadership team
             </p>
-            <h2 className="mt-4">
+            <h3 className="mt-4">
               Makonis is led by a team of passionate professionals bringing together over 80+ years of combined experience across diverse technologies, modern software architectures, and global outsourcing solutions.
-            </h2>
+            </h3>
           </FloatUpText>
 
           <div className="mt-12 grid gap-8 md:grid-cols-3">

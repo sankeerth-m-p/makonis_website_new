@@ -2,9 +2,9 @@ export const navigation = [
   { label: 'Home', href: '/' },
   { label: 'Products', href: '/platforms/mako-plus', hasDropdown: true, menuId: 'products' },
   { label: 'Services', href: '/services/ai', hasDropdown: true, menuId: 'services' },
-  { label: 'Careers', href: '/careers' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Careers', href: '/career2' },
+  { label: 'About', href: '/about2' },
+  { label: 'Contact', href: '/contact2' },
 ]
 
 export const megaMenus = {

@@ -105,7 +105,7 @@ function Navbar() {
   const dropdownCloseTimer = useRef(null)
   const dropdownOpenFrame = useRef(null)
   const forceWhiteChrome = !isHomepage || !isHeroTop || Boolean(activeDropdown)
-  const chromeClass = 'bg-white/60 backdrop-blur-md'
+  const chromeClass = 'bg-white'
   const navTextClass = forceWhiteChrome
     ? 'text-black hover:text-makonis-blue'
     : 'text-white hover:text-white/80'
