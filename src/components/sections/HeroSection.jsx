@@ -33,6 +33,7 @@ function HeroSection() {
       <div className="absolute inset-0">
         <video
           ref={videoRef}
+          preload="auto"
           autoPlay
           muted
           loop
