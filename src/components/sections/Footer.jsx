@@ -9,15 +9,31 @@ function SocialIcon({ label }) {
 const footerColumns = [
   {
     title: 'Company',
-    links: ['About us', 'Careers', 'Contact', 'Blog', 'Press'],
+    links: [
+      { label: 'About us', href: '/about' },
+      { label: 'Careers', href: '/careers' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Blog', href: '/' },
+      { label: 'Press', href: '/' },
+    ],
   },
   {
     title: 'Services',
-    links: ['AI development', 'IoT solutions', 'Data analytics', 'System integration', 'Talent solutions'],
+    links: [
+      { label: 'AI development', href: '/services/ai' },
+      { label: 'IoT solutions', href: '/services/iot' },
+      { label: 'Data analytics', href: '/services/data' },
+      { label: 'System integration', href: '/services/integration' },
+      { label: 'Testing services', href: '/services/testing' },
+    ],
   },
   {
     title: 'Products',
-    links: ['Mako Plus', 'Trading Intelligence', 'Talent Track Pro', 'Semiconductors', 'RTL design'],
+    links: [
+      { label: 'Mako Plus', href: '/platforms/mako-plus' },
+      { label: 'Trading Intelligence', href: '/platforms/trading-intelligence' },
+      { label: 'Talent Track Pro', href: '/platforms/talent-track-pro' },
+    ],
   },
 ]
 
@@ -30,7 +46,7 @@ function Footer() {
       <div className="container-default py-12 md:py-14">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_1fr_1.8fr] lg:gap-10">
           <div className="flex justify-center sm:col-span-2 sm:justify-start lg:col-span-1 lg:items-start">
-            <a href="#" className="inline-flex items-center justify-center">
+            <a href="/" className="inline-flex items-center justify-center">
               <img
                 src="/makonisLogo.png"
                 alt="Makonis"
@@ -45,12 +61,12 @@ function Footer() {
 
               <ul className="mt-4 space-y-3 sm:mt-5 sm:space-y-4">
                 {column.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="text-sm text-makonis-white/90 transition hover:text-makonis-white"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -96,7 +112,7 @@ function Footer() {
                 {legalLinks.map((link) => (
                   <a
                     key={link}
-                    href="#"
+                    href="/"
                     className="text-[15px] text-makonis-white/90 underline-offset-4 transition hover:text-makonis-white hover:underline"
                   >
                     {link}
@@ -109,7 +125,7 @@ function Footer() {
               {socialLinks.map((label) => (
                 <a
                   key={label}
-                  href="#"
+                  href="/"
                   className="inline-flex items-center justify-center text-makonis-white transition hover:opacity-70"
                 >
                   <SocialIcon label={label} />

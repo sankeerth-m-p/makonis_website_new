@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import Button from './Button.jsx'
-import { useContactModal } from './contact/ContactModalContext.js'
-import useAppRoute from './routing/useAppRoute.jsx'
 import { megaMenus, navigation } from '../config/designTokens.js'
+import useAppRoute from './routing/useAppRoute.jsx'
+import { useContactModal } from './contact/ContactModalContext.js'
 
 function ChevronDownIcon() {
   return (
@@ -88,19 +88,23 @@ function MegaMenuCard({ item, compact = false }) {
 }
 
 function Navbar() {
-  const { openContactOptions } = useContactModal()
   const { pathname } = useAppRoute()
   const isHomepage = pathname === '/'
+  const { openContactOptions } = useContactModal()
+
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [isHeroTop, setIsHeroTop] = useState(isHomepage)
   const [activeDropdown, setActiveDropdown] = useState(null)
+  const [renderedDropdown, setRenderedDropdown] = useState(null)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   const headerRef = useRef(null)
   const lastScrollY = useRef(0)
   const ticking = useRef(false)
-  const shouldUseHeroDetection = isHomepage
-  const forceWhiteChrome = !shouldUseHeroDetection || !isHeroTop || Boolean(activeDropdown)
+  const dropdownCloseTimer = useRef(null)
+  const dropdownOpenFrame = useRef(null)
+  const forceWhiteChrome = !isHomepage || !isHeroTop || Boolean(activeDropdown)
   const chromeClass = 'bg-white/60 backdrop-blur-md'
   const navTextClass = forceWhiteChrome
     ? 'text-black hover:text-makonis-blue'
@@ -115,9 +119,11 @@ function Navbar() {
         requestAnimationFrame(() => {
           const currentScrollY = window.scrollY
 
-          // ✅ HERO DETECTION
-          const isAtHero = currentScrollY < window.innerHeight * 0.9
-          setIsHeroTop(isAtHero)
+          if (isHomepage) {
+            setIsHeroTop(currentScrollY < 40)
+          } else {
+            setIsHeroTop(false)
+          }
 
           // ✅ EXISTING SHOW/HIDE LOGIC
           if (currentScrollY < 10) {
@@ -138,14 +144,10 @@ function Navbar() {
       }
     }
 
-    if (shouldUseHeroDetection) {
-      window.addEventListener('scroll', handleScroll, { passive: true })
-      handleScroll()
-      return () => window.removeEventListener('scroll', handleScroll)
-    }
-
-    return undefined
-  }, [shouldUseHeroDetection])
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [isHomepage])
 
   useEffect(() => {
     const handlePointerDown = (event) => {
@@ -170,7 +172,44 @@ function Navbar() {
     }
   }, [])
 
-  const activeMenu = activeDropdown ? megaMenus[activeDropdown] : null
+  useEffect(() => {
+    if (dropdownCloseTimer.current) {
+      window.clearTimeout(dropdownCloseTimer.current)
+      dropdownCloseTimer.current = null
+    }
+
+    if (dropdownOpenFrame.current) {
+      window.cancelAnimationFrame(dropdownOpenFrame.current)
+      dropdownOpenFrame.current = null
+    }
+
+    if (activeDropdown) {
+      setRenderedDropdown(activeDropdown)
+      dropdownOpenFrame.current = window.requestAnimationFrame(() => {
+        setIsDropdownOpen(true)
+      })
+      return () => {
+        if (dropdownOpenFrame.current) {
+          window.cancelAnimationFrame(dropdownOpenFrame.current)
+          dropdownOpenFrame.current = null
+        }
+      }
+    }
+
+    setIsDropdownOpen(false)
+    dropdownCloseTimer.current = window.setTimeout(() => {
+      setRenderedDropdown(null)
+    }, 300)
+
+    return () => {
+      if (dropdownCloseTimer.current) {
+        window.clearTimeout(dropdownCloseTimer.current)
+        dropdownCloseTimer.current = null
+      }
+    }
+  }, [activeDropdown])
+
+  const activeMenu = renderedDropdown ? megaMenus[renderedDropdown] : null
   const logoStyle = {
     filter: forceWhiteChrome ? 'none' : 'brightness(0) invert(1)',
   }
@@ -195,7 +234,7 @@ function Navbar() {
             <img
               src="/makonisLogo.png"
               alt="Makonis"
-              className="h-[52px] w-auto object-contain transition"
+              className="h-12 w-auto object-contain transition"
               style={logoStyle}
             />
           </a>
@@ -236,7 +275,9 @@ function Navbar() {
 
         {/* RIGHT */}
         <div className="hidden items-center gap-5 lg:flex">
-          <Button variant="light" onClick={openContactOptions}>Talk to an Expert</Button>
+          <Button variant="light" onClick={openContactOptions}>
+            Talk to an Expert
+          </Button>
 
           <button
             type="button"
@@ -280,7 +321,14 @@ function Navbar() {
 
       {/* DESKTOP MEGA MENU */}
       {activeMenu ? (
-        <div className={`hidden min-h-[40vh] border-t  border-black/10 ${chromeClass} shadow-[0_8px_20px_rgba(0,0,0,0.04)] lg:block`}>
+        <div
+          className={`hidden min-h-[40vh] border-t border-black/10 ${chromeClass} shadow-[0_8px_20px_rgba(0,0,0,0.04)] transition-[opacity,transform] duration-300 ease-in-out lg:block`}
+          style={{
+            opacity: isDropdownOpen ? 1 : 0,
+            transform: isDropdownOpen ? 'translateY(0)' : 'translateY(-8px)',
+            pointerEvents: isDropdownOpen ? 'auto' : 'none',
+          }}
+        >
           <div className="container-default py-10">
             <div className={`grid gap-8 ${menuGridClass}`}>
               <div>
