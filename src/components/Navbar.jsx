@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Button from './Button.jsx'
+import { useContactModal } from './contact/ContactModalContext.js'
+import useAppRoute from './routing/useAppRoute.jsx'
 import { megaMenus, navigation } from '../config/designTokens.js'
 
 function ChevronDownIcon() {
@@ -86,15 +88,19 @@ function MegaMenuCard({ item, compact = false }) {
 }
 
 function Navbar() {
+  const { openContactOptions } = useContactModal()
+  const { pathname } = useAppRoute()
+  const isHomepage = pathname === '/'
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
-  const [isHeroTop, setIsHeroTop] = useState(true)
+  const [isHeroTop, setIsHeroTop] = useState(isHomepage)
   const [activeDropdown, setActiveDropdown] = useState(null)
 
   const headerRef = useRef(null)
   const lastScrollY = useRef(0)
   const ticking = useRef(false)
-  const forceWhiteChrome = !isHeroTop || Boolean(activeDropdown)
+  const shouldUseHeroDetection = isHomepage
+  const forceWhiteChrome = !shouldUseHeroDetection || !isHeroTop || Boolean(activeDropdown)
   const chromeClass = 'bg-white/60 backdrop-blur-md'
   const navTextClass = forceWhiteChrome
     ? 'text-black hover:text-makonis-blue'
@@ -132,9 +138,14 @@ function Navbar() {
       }
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    if (shouldUseHeroDetection) {
+      window.addEventListener('scroll', handleScroll, { passive: true })
+      handleScroll()
+      return () => window.removeEventListener('scroll', handleScroll)
+    }
+
+    return undefined
+  }, [shouldUseHeroDetection])
 
   useEffect(() => {
     const handlePointerDown = (event) => {
@@ -184,7 +195,7 @@ function Navbar() {
             <img
               src="/makonisLogo.png"
               alt="Makonis"
-              className="h-12 w-auto object-contain transition"
+              className="h-[52px] w-auto object-contain transition"
               style={logoStyle}
             />
           </a>
@@ -225,7 +236,7 @@ function Navbar() {
 
         {/* RIGHT */}
         <div className="hidden items-center gap-5 lg:flex">
-          <Button variant="light">Talk to an Expert</Button>
+          <Button variant="light" onClick={openContactOptions}>Talk to an Expert</Button>
 
           <button
             type="button"
@@ -373,6 +384,7 @@ function Navbar() {
               onClick={() => {
                 setIsOpen(false)
                 setActiveDropdown(null)
+                openContactOptions()
               }}
             >
               Talk to an Expert

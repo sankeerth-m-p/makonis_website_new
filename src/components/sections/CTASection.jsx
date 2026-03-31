@@ -1,10 +1,13 @@
 import Button from '../Button.jsx'
+import { useContactModal } from '../contact/ContactModalContext.js'
 import FloatUpText from '../floatUpText.jsx'
 
 const ctaImage =
   'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80'
 
 function CTASection() {
+  const { openContactOptions, openContactForm } = useContactModal()
+
   return (
     <section className="bg-makonis-navy text-white">
       <FloatUpText className="container-default py-16 text-center md:py-24 lg:py-28">
@@ -22,10 +25,10 @@ function CTASection() {
   </p>
 
   <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
-    <Button variant="light" className="min-w-[190px]">
+    <Button variant="light" className="min-w-[190px]" onClick={openContactOptions}>
       Talk to an Expert
     </Button>
-    <Button variant="outline" className="min-w-[120px]">
+    <Button variant="outline" className="min-w-[120px]" onClick={openContactForm}>
       Contact
     </Button>
           </div>

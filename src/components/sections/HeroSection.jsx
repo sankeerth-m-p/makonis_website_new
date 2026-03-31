@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react'
 import Button from '../Button.jsx'
+import { useContactModal } from '../contact/ContactModalContext.js'
 import { heroContent } from '../../config/homeContent.js'
 
 function HeroSection() {
+  const { openContactOptions } = useContactModal()
   const videoRef = useRef(null)
   const contentRef = useRef(null)
 
@@ -57,7 +59,7 @@ function HeroSection() {
               <p className="leading-relaxed text-makonis-white/90">
                 {heroContent.description}
               </p>
-              <Button variant="light" className="mt-6">
+              <Button variant="light" className="mt-6" onClick={openContactOptions}>
                 {heroContent.ctaLabel}
               </Button>
             </div>
