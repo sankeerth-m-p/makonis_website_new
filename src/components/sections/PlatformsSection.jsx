@@ -85,7 +85,7 @@ function PlatformsSection() {
                 <p className="mb-2 text-sm text-black/60">Human Resource</p>
                 <h3>{card1.title}</h3>
                 <p className="mt-3 text-black/70">{card1.description}</p>
-                <p className="mt-4 font-medium">Learn -&gt;</p>
+                <p className="mt-4 font-medium">explore   </p>
               </div>
             </AnimatedCard>
           </PlatformCardLink>
@@ -101,7 +101,7 @@ function PlatformsSection() {
                 <p className="mb-2 text-sm text-black/60">Finance</p>
                 <h3>{card2.title}</h3>
                 <p className="mt-3 text-black/70">{card2.description}</p>
-                <p className="mt-4 font-medium">Learn -&gt;</p>
+                <p className="mt-4 font-medium"> explore   </p>
               </div>
             </AnimatedCard>
           </PlatformCardLink>
@@ -119,7 +119,7 @@ function PlatformsSection() {
                 <p className="mb-2 text-sm text-black/60">Healthcare</p>
                 <h2>{card3.title}</h2>
                 <p className="mt-4 text-black/70">{card3.description}</p>
-                <p className="mt-6 font-medium">Learn -&gt;</p>
+                <p className="mt-6 font-medium"> explore   </p>
               </div>
             </AnimatedCard>
           </PlatformCardLink>

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   companyMenuLinks,
   platformMenuLinks,
@@ -39,10 +40,16 @@ const legalLinks = ['Privacy Policy', 'Terms of Service', 'Cookie Settings']
 const socialLinks = ['f', 'ig', 'x', 'in', 'yt']
 
 function Footer() {
+  const [openMobileSection, setOpenMobileSection] = useState('IT Services')
+
+  const toggleMobileSection = (title) => {
+    setOpenMobileSection((current) => (current === title ? '' : title))
+  }
+
   return (
     <footer className="bg-makonis-navy text-makonis-white">
       <div className="container-default py-12 md:py-14">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-6 lg:gap-10">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6 lg:gap-10">
           <div className="flex justify-center sm:col-span-2 lg:col-span-1 lg:items-start lg:justify-start">
             <a href="/" className="inline-flex items-center justify-center">
               <img
@@ -55,20 +62,84 @@ function Footer() {
 
           {footerColumns.map((column) => (
             <div key={column.title} className="text-center sm:text-left">
-              <p className="text-[15px] font-medium text-makonis-white">{column.title}</p>
-
-              <ul className="mt-4 space-y-3 sm:mt-5 sm:space-y-4">
-                {column.links.map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-makonis-white/90 transition hover:text-makonis-white"
+              <div className="md:hidden">
+                {serviceMenuSections.some((section) => section.title === column.title) ? (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => toggleMobileSection(column.title)}
+                      aria-expanded={openMobileSection === column.title}
+                      className="flex w-full items-center justify-between border-b border-makonis-white/12 py-3 text-left"
                     >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+                      <span className="text-[15px] font-medium text-makonis-white">
+                        {column.title}
+                      </span>
+                      <span className="text-sm text-makonis-white/70">
+                        {openMobileSection === column.title ? '-' : '+'}
+                      </span>
+                    </button>
+
+                    <ul
+                      className={`grid overflow-hidden transition-all duration-300 ease-out ${
+                        openMobileSection === column.title
+                          ? 'grid-rows-[1fr] opacity-100'
+                          : 'grid-rows-[0fr] opacity-0'
+                      }`}
+                    >
+                      <li className="overflow-hidden">
+                        <div className="pt-4">
+                          <ul className="space-y-3 text-left">
+                            {column.links.map((link) => (
+                              <li key={link.label}>
+                                <a
+                                  href={link.href}
+                                  className="text-sm text-makonis-white/90 transition hover:text-makonis-white"
+                                >
+                                  {link.label}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-[15px] font-medium text-makonis-white">{column.title}</p>
+                    <ul className="mt-4 space-y-3">
+                      {column.links.map((link) => (
+                        <li key={link.label}>
+                          <a
+                            href={link.href}
+                            className="text-sm text-makonis-white/90 transition hover:text-makonis-white"
+                          >
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
+
+              <div className="hidden md:block">
+                <p className="text-[15px] font-medium text-makonis-white">{column.title}</p>
+
+                <ul className="mt-4 space-y-3 sm:mt-5 sm:space-y-4">
+                  {column.links.map((link) => (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        className="text-sm text-makonis-white/90 transition hover:text-makonis-white"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
             </div>
           ))}
         </div>
