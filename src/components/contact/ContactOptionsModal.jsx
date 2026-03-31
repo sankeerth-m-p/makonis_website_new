@@ -113,17 +113,19 @@ function OptionCard({ icon, title, description, caption, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="group flex h-full w-full flex-col rounded-2xl border border-black/10 bg-white p-6 text-left shadow-[0_16px_40px_rgba(0,41,86,0.08)] transition duration-300 hover:-translate-y-1 hover:border-makonis-blue/30 hover:shadow-[0_22px_50px_rgba(0,41,86,0.14)]"
+      className="group flex h-full w-full flex-col rounded-2xl border border-black/10 bg-white p-5 text-left shadow-[0_10px_28px_rgba(0,41,86,0.07)] transition duration-300 hover:-translate-y-1 hover:border-makonis-blue/30 hover:shadow-[0_16px_36px_rgba(0,41,86,0.12)]"
     >
-      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-makonis-blue/10 text-makonis-navy transition duration-300 group-hover:bg-makonis-navy group-hover:text-white">
+      <div className="flex h-11 w-11 items-center justify-center rounded-full bg-makonis-blue/10 text-makonis-navy transition duration-300 group-hover:bg-makonis-navy group-hover:text-white">
         {icon}
       </div>
-      <p className="mt-6 text-sm font-semibold uppercase tracking-[0.12em] text-black/45">
+      <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-black/45">
         {caption}
       </p>
-      <h3 className="mt-3">{title}</h3>
-      <p className="mt-3 text-black/65">{description}</p>
-      <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-makonis-navy">
+      <h3 className="mt-2 text-[20px] leading-tight text-makonis-navy md:text-[22px]">
+        {title}
+      </h3>
+      <p className="mt-2 text-sm leading-6 text-black/65">{description}</p>
+      <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-makonis-navy">
         <span>Continue</span>
         <ArrowIcon />
       </div>
@@ -162,49 +164,51 @@ function ContactOptionsModal({ isOpen, onClose, onContactFormClick }) {
       />
 
       <div className="relative mx-auto flex min-h-full max-w-6xl items-center">
-        <div className="relative w-full overflow-hidden rounded-[28px] border border-white/40 bg-makonis-white shadow-[0_40px_120px_rgba(0,20,45,0.3)]">
+        <div className="relative w-full max-h-[90vh] overflow-hidden rounded-2xl border border-black/10 bg-makonis-white shadow-[0_24px_70px_rgba(0,20,45,0.18)]">
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-5 top-5 z-10 rounded-full border border-white/15 bg-white/10 p-2.5 text-white transition hover:bg-white/20"
+            className="absolute right-5 top-5 z-20 rounded-full border border-black/10 bg-white/95 p-2.5 text-makonis-navy shadow-sm transition hover:border-black/15 hover:bg-white"
           >
             <CloseIcon />
           </button>
 
-          <div className="grid lg:grid-cols-[1.05fr_1.45fr]">
-            <div className="relative overflow-hidden bg-makonis-navy px-6 py-10 text-white sm:px-8 lg:px-10 lg:py-12">
+          <div className="grid max-h-[90vh] lg:grid-cols-[1.05fr_1.45fr]">
+            <div className="relative max-h-[90vh] overflow-y-auto overflow-x-hidden bg-makonis-navy px-6 py-8 text-white sm:px-8 lg:px-10 lg:py-10">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,160,233,0.32),transparent_42%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.12),transparent_38%)]" />
               <div className="relative">
-                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/65">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">
                   Contact
                 </p>
-                <h2 className="mt-4 text-white">Talk to an expert</h2>
-                <p className="mt-4 max-w-md text-white/78">
+                <h2 className="mt-3 text-[28px] leading-tight text-white md:text-[32px]">
+                  Talk to an expert
+                </h2>
+                <p className="mt-3 max-w-md text-sm leading-6 text-white/78">
                   Choose the fastest way to connect with our team and we&apos;ll
                   help you find the right next step.
                 </p>
 
-                <div className="mt-10 space-y-4">
-                  <div className="rounded-2xl border border-white/12 bg-white/8 p-5 backdrop-blur-sm">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/60">
+                <div className="mt-8 space-y-4">
+                  <div className="rounded-2xl border border-white/12 bg-white/8 p-4 backdrop-blur-sm sm:p-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
                       Phone
                     </p>
                     <a
                       href="tel:+918041707838"
-                      className="mt-3 inline-flex items-center gap-3 text-lg font-semibold text-white transition hover:text-white/85"
+                      className="mt-3 inline-flex items-center gap-3 text-base font-semibold text-white transition hover:text-white/85"
                     >
                       <PhoneIcon />
                       <span>+91 8041707838</span>
                     </a>
                   </div>
 
-                  <div className="rounded-2xl border border-white/12 bg-white/8 p-5 backdrop-blur-sm">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/60">
+                  <div className="rounded-2xl border border-white/12 bg-white/8 p-4 backdrop-blur-sm sm:p-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
                       Email
                     </p>
                     <a
                       href="mailto:info@makonissoft.com"
-                      className="mt-3 inline-flex items-center gap-3 text-base font-medium text-white/88 transition hover:text-white"
+                      className="mt-3 inline-flex items-center gap-3 text-sm font-medium text-white/88 transition hover:text-white"
                     >
                       <MailIcon />
                       <span>info@makonissoft.com</span>
@@ -214,19 +218,21 @@ function ContactOptionsModal({ isOpen, onClose, onContactFormClick }) {
               </div>
             </div>
 
-            <div className="bg-white px-6 py-10 sm:px-8 lg:px-10 lg:py-12">
+            <div className="max-h-[90vh] overflow-y-auto bg-white px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
               <div className="max-w-3xl">
-                <p className="text-sm font-semibold uppercase tracking-[0.12em] text-black/45">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-black/45">
                   Choose a path
                 </p>
-                <h2 className="mt-3">How would you like to connect?</h2>
-                <p className="mt-4 max-w-2xl text-black/62">
+                <h2 className="mt-3 text-[28px] leading-tight text-makonis-navy md:text-[32px]">
+                  How would you like to connect?
+                </h2>
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-black/62">
                   Pick the option that works best for you. The flow stays the
                   same, but the experience now fits the rest of the site.
                 </p>
               </div>
 
-              <div className="mt-8 grid gap-5 md:grid-cols-3">
+              <div className="mt-7 grid gap-4 md:grid-cols-3">
                 <OptionCard
                   icon={<PhoneIcon />}
                   caption="Instant"
@@ -250,12 +256,12 @@ function ContactOptionsModal({ isOpen, onClose, onContactFormClick }) {
                 />
               </div>
 
-              <div className="mt-8 flex flex-col gap-3 rounded-2xl border border-black/8 bg-makonis-white/80 p-5 sm:flex-row sm:items-center sm:justify-between">
+              <div className="mt-7 flex flex-col gap-3 rounded-2xl border border-black/8 bg-makonis-white/80 p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
                 <div>
                   <p className="text-sm font-semibold text-makonis-navy">
                     Not sure which route to choose?
                   </p>
-                  <p className="mt-1 text-sm text-black/55">
+                  <p className="mt-1 text-sm leading-6 text-black/55">
                     Start with the form and we&apos;ll guide the conversation from
                     there.
                   </p>

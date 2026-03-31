@@ -135,7 +135,7 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 ml-1 block text-xs font-semibold uppercase tracking-[0.12em] text-black/45">
+      <label className="mb-2 ml-1 block text-[11px] font-semibold uppercase tracking-[0.18em] text-black/45">
         {label} <span className="text-red-500">*</span>
       </label>
       <div
@@ -143,7 +143,7 @@ function Field({
           error ? 'border-red-400' : 'border-black/10'
         }`}
       >
-        <div className="pointer-events-none absolute left-0 top-0 flex h-12 w-12 items-center justify-center text-black/35">
+        <div className="pointer-events-none absolute left-0 top-0 flex h-11 w-11 items-center justify-center text-black/35">
           {icon}
         </div>
         {children}
@@ -255,43 +255,45 @@ function ContactFormModal({ isOpen, onClose }) {
       />
 
       <div className="relative mx-auto flex min-h-full max-w-6xl items-center">
-        <div className="relative w-full overflow-hidden rounded-[28px] border border-white/40 bg-makonis-white shadow-[0_40px_120px_rgba(0,20,45,0.32)]">
+        <div className="relative w-full max-h-[90vh] overflow-hidden rounded-2xl border border-black/10 bg-makonis-white shadow-[0_24px_70px_rgba(0,20,45,0.18)]">
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-5 top-5 z-10 rounded-full border border-white/15 bg-white/10 p-2.5 text-white transition hover:bg-white/20"
+            className="absolute right-5 top-5 z-20 rounded-full border border-black/10 bg-white/95 p-2.5 text-makonis-navy shadow-sm transition hover:border-black/15 hover:bg-white"
           >
             <CloseIcon />
           </button>
 
-          <div className="grid lg:grid-cols-[0.92fr_1.4fr]">
-            <div className="relative overflow-hidden bg-makonis-navy px-6 py-10 text-white sm:px-8 lg:px-10 lg:py-12">
+          <div className="grid max-h-[90vh] lg:grid-cols-[0.92fr_1.4fr]">
+            <div className="relative max-h-[90vh] overflow-y-auto overflow-x-hidden bg-makonis-navy px-6 py-8 text-white sm:px-8 lg:px-10 lg:py-10">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,160,233,0.32),transparent_42%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.12),transparent_38%)]" />
               <div className="relative">
-                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/65">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/65">
                   Contact form
                 </p>
-                <h2 className="mt-4 text-white">Tell us what you&apos;re building</h2>
-                <p className="mt-4 max-w-md text-white/78">
+                <h2 className="mt-3 text-[28px] leading-tight text-white md:text-[32px]">
+                  Tell us what you&apos;re building
+                </h2>
+                <p className="mt-3 max-w-md text-sm leading-6 text-white/78">
                   Share your project details and the right Makonis team will get
                   back to you with the next step.
                 </p>
 
-                <div className="mt-10 grid gap-4">
-                  <div className="rounded-2xl border border-white/12 bg-white/8 p-5 backdrop-blur-sm">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/60">
+                <div className="mt-8 grid gap-4">
+                  <div className="rounded-2xl border border-white/12 bg-white/8 p-4 backdrop-blur-sm sm:p-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
                       What happens next
                     </p>
-                    <p className="mt-3 text-white/82">
+                    <p className="mt-2 text-sm leading-6 text-white/82">
                       We review your requirement, route it to the right team,
                       and reach out with a clear response.
                     </p>
                   </div>
-                  <div className="rounded-2xl border border-white/12 bg-white/8 p-5 backdrop-blur-sm">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/60">
+                  <div className="rounded-2xl border border-white/12 bg-white/8 p-4 backdrop-blur-sm sm:p-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
                       Response focus
                     </p>
-                    <p className="mt-3 text-white/82">
+                    <p className="mt-2 text-sm leading-6 text-white/82">
                       Products, services, general enquiries, and enterprise
                       partnerships.
                     </p>
@@ -300,26 +302,28 @@ function ContactFormModal({ isOpen, onClose }) {
               </div>
             </div>
 
-            <div className="bg-white px-6 py-10 sm:px-8 lg:px-10 lg:py-12">
+            <div className="max-h-[90vh] overflow-y-auto bg-white px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
               <div className="max-w-3xl">
-                <p className="text-sm font-semibold uppercase tracking-[0.12em] text-black/45">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-black/45">
                   Project details
                 </p>
-                <h2 className="mt-3">Start the conversation</h2>
-                <p className="mt-4 max-w-2xl text-black/62">
+                <h2 className="mt-3 text-[28px] leading-tight text-makonis-navy md:text-[32px]">
+                  Start the conversation
+                </h2>
+                <p className="mt-3 max-w-2xl text-sm leading-6 text-black/62">
                   Fill in the details below and we&apos;ll connect you with the
                   right expert.
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-                <div className="grid gap-5 md:grid-cols-2">
+              <form onSubmit={handleSubmit} className="mt-7 space-y-5">
+                <div className="grid gap-4 md:grid-cols-2">
                   <Field label="Name" icon={<UserIcon />} error={errors.name}>
                     <input
                       type="text"
                       name="name"
                       placeholder="John Doe"
-                      className="h-12 w-full rounded-2xl bg-transparent pl-12 pr-4 text-sm text-black outline-none"
+                      className="h-11 w-full rounded-2xl bg-transparent pl-11 pr-4 text-[14px] text-black outline-none"
                       value={formData.name}
                       onChange={handleChange}
                     />
@@ -330,20 +334,20 @@ function ContactFormModal({ isOpen, onClose }) {
                       type="email"
                       name="email"
                       placeholder="john@company.com"
-                      className="h-12 w-full rounded-2xl bg-transparent pl-12 pr-4 text-sm text-black outline-none"
+                      className="h-11 w-full rounded-2xl bg-transparent pl-11 pr-4 text-[14px] text-black outline-none"
                       value={formData.email}
                       onChange={handleChange}
                     />
                   </Field>
                 </div>
 
-                <div className="grid gap-5 md:grid-cols-2">
+                <div className="grid gap-4 md:grid-cols-2">
                   <Field label="City" icon={<CityIcon />} error={errors.city}>
                     <input
                       type="text"
                       name="city"
                       placeholder="Bangalore"
-                      className="h-12 w-full rounded-2xl bg-transparent pl-12 pr-4 text-sm text-black outline-none"
+                      className="h-11 w-full rounded-2xl bg-transparent pl-11 pr-4 text-[14px] text-black outline-none"
                       value={formData.city}
                       onChange={handleChange}
                     />
@@ -354,18 +358,18 @@ function ContactFormModal({ isOpen, onClose }) {
                       type="tel"
                       name="mobile"
                       placeholder="9876543210"
-                      className="h-12 w-full rounded-2xl bg-transparent pl-12 pr-4 text-sm text-black outline-none"
+                      className="h-11 w-full rounded-2xl bg-transparent pl-11 pr-4 text-[14px] text-black outline-none"
                       value={formData.mobile}
                       onChange={handleChange}
                     />
                   </Field>
                 </div>
 
-                <div className="grid gap-5 md:grid-cols-2">
+                <div className="grid gap-4 md:grid-cols-2">
                   <Field label="Enquiry type" icon={<ChevronIcon />} error={null}>
                     <select
                       name="enquiryType"
-                      className="h-12 w-full appearance-none rounded-2xl bg-transparent pl-4 pr-12 text-sm text-black outline-none"
+                      className="h-11 w-full appearance-none rounded-2xl bg-transparent pl-4 pr-11 text-[14px] text-black outline-none"
                       value={formData.enquiryType}
                       onChange={handleChange}
                     >
@@ -383,7 +387,7 @@ function ContactFormModal({ isOpen, onClose }) {
                     >
                       <select
                         name="selection"
-                        className="h-12 w-full appearance-none rounded-2xl bg-transparent pl-4 pr-12 text-sm text-black outline-none"
+                        className="h-11 w-full appearance-none rounded-2xl bg-transparent pl-4 pr-11 text-[14px] text-black outline-none"
                         value={formData.selection}
                         onChange={handleChange}
                       >
@@ -401,7 +405,7 @@ function ContactFormModal({ isOpen, onClose }) {
                 </div>
 
                 <div>
-                  <label className="mb-2 ml-1 block text-xs font-semibold uppercase tracking-[0.12em] text-black/45">
+                  <label className="mb-2 ml-1 block text-[11px] font-semibold uppercase tracking-[0.18em] text-black/45">
                     Description <span className="text-red-500">*</span>
                   </label>
                   <div
@@ -413,7 +417,7 @@ function ContactFormModal({ isOpen, onClose }) {
                       name="description"
                       rows="5"
                       placeholder="Tell us more about your requirements..."
-                      className="w-full resize-none rounded-2xl bg-transparent px-4 py-4 text-sm text-black outline-none"
+                      className="w-full resize-none rounded-2xl bg-transparent px-4 py-3 text-[14px] text-black outline-none"
                       value={formData.description}
                       onChange={handleChange}
                     />
@@ -423,8 +427,8 @@ function ContactFormModal({ isOpen, onClose }) {
                   ) : null}
                 </div>
 
-                <div className="flex flex-col gap-4 border-t border-black/8 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="max-w-xl text-sm text-black/55">
+                <div className="flex flex-col gap-4 border-t border-black/8 pt-5 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="max-w-xl text-sm leading-6 text-black/55">
                     By sending this form, you&apos;re asking our team to contact
                     you about your enquiry.
                   </p>
