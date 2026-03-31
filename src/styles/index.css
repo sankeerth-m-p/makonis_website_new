@@ -28,6 +28,12 @@
     }
   }
 
+  @media (max-width: 1023px) {
+    .mobile-no-anchor {
+      overflow-anchor: none;
+    }
+  }
+
   body {
     margin: 0;
     font-family: var(--font-body);

@@ -9,7 +9,7 @@ function CTASection() {
   const { openContactOptions, openContactForm } = useContactModal()
 
   return (
-    <section className="bg-makonis-navy text-white mt-10">
+    <section className="mobile-no-anchor mt-10 bg-makonis-navy text-white">
       <FloatUpText className="container-default py-16 text-center md:py-24 lg:py-28">
         <div className="mx-auto max-w-2xl">
           <p className="text-sm text-white/60 mb-3">

@@ -46,11 +46,14 @@ function Footer() {
     setOpenMobileSection((current) => (current === title ? '' : title))
   }
 
+  const isMobileToggleSection = (title) =>
+    serviceMenuSections.some((section) => section.title === title) || title === 'Products'
+
   return (
-    <footer className="bg-makonis-navy text-makonis-white">
+    <footer className="mobile-no-anchor bg-makonis-navy text-makonis-white">
       <div className="container-default py-12 md:py-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6 lg:gap-10">
-          <div className="flex justify-center sm:col-span-2 lg:col-span-1 lg:items-start lg:justify-start">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-6 lg:gap-10">
+          <div className="flex justify-start sm:col-span-2 lg:col-span-1 lg:items-start lg:justify-start">
             <a href="/" className="inline-flex items-center justify-center">
               <img
                 src="/makonisLogo.png"
@@ -61,21 +64,21 @@ function Footer() {
           </div>
 
           {footerColumns.map((column) => (
-            <div key={column.title} className="text-center sm:text-left">
+            <div key={column.title} className="text-left">
               <div className="md:hidden">
-                {serviceMenuSections.some((section) => section.title === column.title) ? (
+                {isMobileToggleSection(column.title) ? (
                   <>
                     <button
                       type="button"
                       onClick={() => toggleMobileSection(column.title)}
                       aria-expanded={openMobileSection === column.title}
-                      className="flex w-full items-center justify-between border-b border-makonis-white/12 py-3 text-left"
+                      className="flex w-full items-center justify-start gap-1.5 py-2.5 text-left"
                     >
                       <span className="text-[15px] font-medium text-makonis-white">
                         {column.title}
                       </span>
-                      <span className="text-sm text-makonis-white/70">
-                        {openMobileSection === column.title ? '-' : '+'}
+                      <span className="inline-block text-[11px] leading-none text-makonis-white/70">
+                        {openMobileSection === column.title ? '^' : 'v'}
                       </span>
                     </button>
 
@@ -87,8 +90,8 @@ function Footer() {
                       }`}
                     >
                       <li className="overflow-hidden">
-                        <div className="pt-4">
-                          <ul className="space-y-3 text-left">
+                        <div className="pt-3">
+                          <ul className="space-y-2.5 text-left">
                             {column.links.map((link) => (
                               <li key={link.label}>
                                 <a
@@ -107,7 +110,7 @@ function Footer() {
                 ) : (
                   <>
                     <p className="text-[15px] font-medium text-makonis-white">{column.title}</p>
-                    <ul className="mt-4 space-y-3">
+                    <ul className="mt-3 space-y-2.5 text-left">
                       {column.links.map((link) => (
                         <li key={link.label}>
                           <a
@@ -144,13 +147,13 @@ function Footer() {
           ))}
         </div>
 
-        <div className="mt-10 border-t border-makonis-white/18 pt-6">
-          <div className="flex flex-col gap-6 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
+        <div className="mt-8 border-t border-makonis-white/18 pt-5">
+          <div className="flex flex-col gap-5 text-left lg:flex-row lg:items-center lg:justify-between">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-6">
               <p className="text-[15px] text-makonis-white/90">
                 &copy; 2024 Makonis. All rights reserved.
               </p>
-              <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 lg:justify-start">
+              <div className="flex flex-wrap justify-start gap-x-5 gap-y-2">
                 {legalLinks.map((link) => (
                   <a
                     key={link}
@@ -163,7 +166,7 @@ function Footer() {
               </div>
             </div>
 
-            <div className="flex items-center justify-center gap-4 lg:justify-start">
+            <div className="flex items-center justify-start gap-4">
               {socialLinks.map((label) => (
                 <a
                   key={label}
