@@ -1,11 +1,9 @@
 import Button from '../components/Button.jsx'
 import Footer from '../components/sections/Footer.jsx'
-import { useContactModal } from '../components/contact/ContactModalContext.js'
 import useAppRoute from '../components/routing/useAppRoute.jsx'
 import { servicePageContent } from '../config/homeContent.js'
 
 function ServicePage({ serviceKey }) {
-  const { openContactOptions } = useContactModal()
   const { navigate } = useAppRoute()
   const content = servicePageContent[serviceKey]
 
@@ -16,6 +14,15 @@ function ServicePage({ serviceKey }) {
   return (
     <>
       <section className="bg-white pt-28 pb-16 md:pt-32 md:pb-20">
+        <div className="container-default mb-8 flex justify-start">
+          <Button
+            variant="light"
+            onClick={() => navigate('/')}
+          >
+            Back home
+          </Button>
+        </div>
+
         <div className="container-default grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-makonis-blue">
@@ -30,18 +37,6 @@ function ServicePage({ serviceKey }) {
               {content.description}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button variant="light" onClick={openContactOptions}>
-                Talk to an Expert
-              </Button>
-
-              <Button
-                variant="light"
-                onClick={() => navigate('/')}
-              >
-                Back home
-              </Button>
-            </div>
           </div>
 
           <div className="overflow-hidden rounded-md border border-black/10 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
