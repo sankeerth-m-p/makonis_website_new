@@ -1,3 +1,7 @@
+import {
+  serviceMenuSections,
+} from './homeContent.js'
+
 export const navigation = [
   { label: 'Home', href: '/' },
   { label: 'Products', href: '/platforms/mako-plus', hasDropdown: true, menuId: 'products' },
@@ -23,17 +27,6 @@ export const megaMenus = {
   },
   services: {
     eyebrow: 'Our Services',
-    sections: [
-      {
-        title: 'Services',
-        links: [
-          { label: 'Artificial Intelligence', href: '/services/ai' },
-          { label: 'Internet of Things', href: '/services/iot' },
-          { label: 'System Integration', href: '/services/integration' },
-          { label: 'Testing', href: '/services/testing' },
-          { label: 'Analytics', href: '/services/data' },
-        ],
-      },
-    ],
+    sections: serviceMenuSections,
   },
 }

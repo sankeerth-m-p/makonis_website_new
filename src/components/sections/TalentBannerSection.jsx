@@ -1,8 +1,11 @@
 import Button from '../Button.jsx'
 import { talentBanner } from '../../config/homeContent.js'
 import FloatUpText from '../floatUpText.jsx'
+import useAppRoute from '../routing/useAppRoute.jsx'
 
 function TalentBannerSection() {
+  const { navigate } = useAppRoute()
+
   return (
     <section className="py-16 md:py-0">
       <div className="relative min-h-[520px] overflow-hidden bg-makonis-navy text-white">
@@ -40,7 +43,11 @@ function TalentBannerSection() {
                   {talentBanner.description}
                 </p>
 
-                <Button variant="light" className="mt-6">
+                <Button
+                  variant="light"
+                  className="mt-6"
+                  onClick={() => navigate(talentBanner.ctaHref || '/talent-solutions')}
+                >
                   {talentBanner.ctaLabel}
                 </Button>
               </div>

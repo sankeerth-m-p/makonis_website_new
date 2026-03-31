@@ -88,7 +88,7 @@ export const serviceCards = {
 
   testing: {
     label: 'Testing',
-    title: 'Testing services',
+    title: 'Testing',
     description: 'Quality assurance across all platforms',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
     href: '/services/testing',
@@ -96,7 +96,7 @@ export const serviceCards = {
 
   integration: {
     label: 'Integration',
-    title: 'System integration',
+    title: 'Integration',
     description: 'Seamless connections between your systems',
     image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80',
     href: '/services/integration',
@@ -104,32 +104,32 @@ export const serviceCards = {
 
   iot: {
     label: 'IoT',
-    title: 'IoT solutions',
+    title: 'Internet of Things (IoT)',
     description: 'Connected devices and edge computing platforms',
     href: '/services/iot',
   },
 
   data: {
     label: 'Data',
-    title: 'Data analytics',
+    title: 'Analytics',
     description: 'Insights from data at enterprise scale',
     href: '/services/data',
   },
 
-  cloud: {
-    label: 'Cloud',
-    href: '/services/cloud',
-    title: 'Cloud Infrastructure',
-    description: 'Scalable cloud architecture built for reliability and growth.',
-    image: '/images/services/cloud.jpg',
+  deviceEngineering: {
+    label: 'Device Engineering',
+    href: '/services/device-engineering',
+    title: 'Device Engineering',
+    description: 'Hardware-adjacent product engineering for connected devices and embedded systems.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
   },
 
-  cyber: {
-    label: 'Cyber',
-    href: '/services/cybersecurity',
-    title: 'Cybersecurity',
-    description: 'End-to-end protection for your systems, data, and people.',
-    image: '/images/services/cyber.jpg',
+  globalCapabilityCenter: {
+    label: 'Global Capability Center (GCC)',
+    href: '/services/gcc',
+    title: 'Global Capability Center (GCC)',
+    description: 'Scaled delivery teams and operating models that extend your enterprise capacity.',
+    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80',
   },
 }
 
@@ -150,7 +150,7 @@ export const servicePageContent = {
   testing: {
     path: '/services/testing',
     eyebrow: 'Services',
-    title: 'Testing services',
+    title: 'Testing',
     description:
       'Quality engineering across web, platform, and integration layers so releases stay predictable and confidence stays high.',
     image: serviceCards.testing.image,
@@ -163,7 +163,7 @@ export const servicePageContent = {
   integration: {
     path: '/services/integration',
     eyebrow: 'Services',
-    title: 'System integration',
+    title: 'Integration',
     description:
       'We connect platforms, data, and workflows so your teams can operate from one coherent system instead of disconnected tools.',
     image: serviceCards.integration.image,
@@ -176,7 +176,7 @@ export const servicePageContent = {
   iot: {
     path: '/services/iot',
     eyebrow: 'Services',
-    title: 'IoT solutions',
+    title: 'Internet of Things (IoT)',
     description:
       'Connected device strategies and edge-aware architectures for products that need to sense, respond, and report from the field.',
     image:
@@ -190,7 +190,7 @@ export const servicePageContent = {
   data: {
     path: '/services/data',
     eyebrow: 'Services',
-    title: 'Data analytics',
+    title: 'Analytics',
     description:
       'Analytics foundations that turn scattered information into clear reporting, operational visibility, and stronger business decisions.',
     image:
@@ -201,17 +201,250 @@ export const servicePageContent = {
       'Analytics pipelines that support scale without losing clarity',
     ],
   },
+  'device-engineering': {
+    path: '/services/device-engineering',
+    eyebrow: 'Services',
+    title: 'Device Engineering',
+    description:
+      'Hardware-adjacent product engineering for connected devices and embedded systems that need practical reliability from prototype to production.',
+    image:
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'Embedded product design that balances performance and reliability',
+      'Hardware-aware development support for connected device programs',
+      'Delivery patterns that align prototyping with production goals',
+    ],
+  },
+  gcc: {
+    path: '/services/gcc',
+    eyebrow: 'Services',
+    title: 'Global Capability Center (GCC)',
+    description:
+      'Scalable delivery teams and operating models that extend your enterprise capacity with consistency and control.',
+    image:
+      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'Dedicated teams aligned to your process and delivery expectations',
+      'Operating model support for long-term execution and scale',
+      'Flexible capacity that plugs into existing programs without friction',
+    ],
+  },
+  'rtl-design': {
+    path: '/services/rtl-design',
+    eyebrow: 'Semiconductor',
+    title: 'RTL Design & Development',
+    description:
+      'Architecture definition, micro-architecture, and high-performance RTL coding for silicon teams that need disciplined execution.',
+    image:
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'Micro-architectures aligned to performance, power, and area goals',
+      'Clean RTL implementation with verification-ready interfaces',
+      'Delivery that supports handoff into downstream design stages',
+    ],
+  },
+  'physical-design': {
+    path: '/services/physical-design',
+    eyebrow: 'Semiconductor',
+    title: 'Physical Design',
+    description:
+      'Floorplanning, placement, CTS, and routing support for projects targeting advanced nodes and predictable tapeout quality.',
+    image:
+      'https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'Floorplan and timing-aware implementation planning',
+      'Clock tree and routing strategies built for manufacturability',
+      'Practical support through signoff and tapeout readiness',
+    ],
+  },
+  'fpga-design': {
+    path: '/services/fpga-design',
+    eyebrow: 'Semiconductor',
+    title: 'FPGA Design',
+    description:
+      'Custom FPGA solutions, hardware acceleration, and IP development for teams validating ideas before committing to silicon.',
+    image:
+      'https://images.unsplash.com/photo-1537432376769-00f5c2f4f05b?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'FPGA implementations that balance speed, size, and flexibility',
+      'Reusable IP blocks that accelerate proof-of-concept delivery',
+      'Support for prototyping, validation, and field-ready systems',
+    ],
+  },
+  consulting: {
+    path: '/services/consulting',
+    eyebrow: 'Semiconductor',
+    title: 'Design Consulting',
+    description:
+      'Strategic consulting to improve design flows, methodology, and execution choices across complex hardware programs.',
+    image:
+      'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'Architecture and methodology reviews shaped around real delivery pressure',
+      'Guidance that strengthens quality, schedule, and collaboration',
+      'Hands-on support for teams that need clearer execution paths',
+    ],
+  },
+  verification: {
+    path: '/services/verification',
+    eyebrow: 'Semiconductor',
+    title: 'Design Verification',
+    description:
+      'Functional and physical verification support that improves confidence before first silicon and keeps issues visible earlier.',
+    image:
+      'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'Verification strategies built around coverage and repeatability',
+      'UVM-oriented workflows for consistent validation discipline',
+      'Issue detection that reduces expensive late-stage surprises',
+    ],
+  },
+  dft: {
+    path: '/services/dft',
+    eyebrow: 'Semiconductor',
+    title: 'DFT',
+    description:
+      'Scan insertion, ATPG, and MBIST support that improves test coverage, yield, and post-tapeout confidence.',
+    image:
+      'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'Testability planning that supports production-quality coverage',
+      'DFT implementation aligned with downstream manufacturing needs',
+      'Practical execution that keeps verification and test teams aligned',
+    ],
+  },
+  'post-silicon': {
+    path: '/services/post-silicon',
+    eyebrow: 'Semiconductor',
+    title: 'Post-Silicon Validation',
+    description:
+      'Silicon bring-up, characterization, and debug support for teams moving from lab validation to production confidence.',
+    image:
+      'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'Bring-up workflows that uncover issues quickly and clearly',
+      'Debug support across lab, board, and system-level validation',
+      'Structured validation that informs production readiness',
+    ],
+  },
 }
+
+export const servicesMenuLinks = [
+  { label: 'Artificial Intelligence', href: servicePageContent.ai.path },
+  { label: 'Internet of Things (IoT)', href: servicePageContent.iot.path },
+  { label: 'Device Engineering', href: servicePageContent['device-engineering'].path },
+  { label: 'Analytics', href: servicePageContent.data.path },
+  { label: 'Integration', href: servicePageContent.integration.path },
+  { label: 'Testing', href: servicePageContent.testing.path },
+  { label: 'Global Capability Center (GCC)', href: servicePageContent.gcc.path },
+]
+
+export const serviceMenuSections = [
+  {
+    title: 'IT Services',
+    links: servicesMenuLinks,
+  },
+  {
+    title: 'Semiconductor Solutions',
+    links: [
+      { label: 'RTL Design & Development', href: servicePageContent['rtl-design'].path },
+      { label: 'Physical Design', href: servicePageContent['physical-design'].path },
+      { label: 'FPGA Design', href: servicePageContent['fpga-design'].path },
+      { label: 'Design Consulting', href: servicePageContent.consulting.path },
+      { label: 'Design Verification', href: servicePageContent.verification.path },
+      { label: 'DFT (Design for Test)', href: servicePageContent.dft.path },
+      { label: 'Post-Silicon Validation', href: servicePageContent['post-silicon'].path },
+    ],
+  },
+  {
+    title: 'Talent Solutions',
+    links: [
+      { label: 'Contract Staffing', href: '/talent-solutions#contract-staffing' },
+      { label: 'Contract to Hire', href: '/talent-solutions#contract-to-hire' },
+      { label: 'Direct Hire', href: '/talent-solutions#direct-hire' },
+      { label: 'Enterprise RPO', href: '/talent-solutions#enterprise-rpo' },
+      { label: 'Executive Search', href: '/talent-solutions#executive-search' },
+      { label: 'Hire Train Deploy', href: '/talent-solutions#hire-train-deploy' },
+      { label: 'Staff Augmentation', href: '/talent-solutions#staff-augmentation' },
+    ],
+  },
+]
+
+export const semiconductorMenuLinks = serviceMenuSections[1].links
+
+export const talentSolutionsMenuLinks = serviceMenuSections[2].links
+
+export const platformMenuLinks = [
+  { label: 'Mako Plus', href: '/platforms/mako-plus' },
+  { label: 'Talent Track Pro', href: '/platforms/talent-track-pro' },
+  { label: 'Trading Intelligence', href: '/platforms/trading-intelligence' },
+]
+
+export const companyMenuLinks = [
+  { label: 'About us', href: '/about2' },
+  { label: 'Careers', href: '/career2' },
+  { label: 'Contact', href: '/contact2' },
+]
 
 export const talentBanner = {
   eyebrow: 'Talent',
   title: 'People who move the needle',
   description:
-    'We connect you with engineers and specialists who understand enterprise challenges. Contract, permanent, or augmented, we find the right fit for your team.',
-  ctaLabel: 'Explore',
+    'We connect you with engineers and specialists who understand enterprise challenges. Contract staffing, direct hire, and workforce augmentation built around the right fit.',
+  ctaLabel: 'Explore more',
+  ctaHref: '/talent-solutions',
   image:
     'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=80',
 }
+
+export const talentSolutionsPageContent = {
+  path: '/talent-solutions',
+  eyebrow: 'Talent Solutions',
+  title: 'Talent solutions built around speed and fit',
+  description:
+    'From short-term coverage to strategic hiring programs, we help teams find the right people without slowing down delivery.',
+  image:
+    'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=80',
+  offerings: [
+    {
+      id: 'contract-staffing',
+      title: 'Contract Staffing',
+      description: 'Add experienced professionals quickly for project-based or surge capacity needs.',
+    },
+    {
+      id: 'contract-to-hire',
+      title: 'Contract to Hire',
+      description: 'Evaluate performance in real work before converting the role to a long-term fit.',
+    },
+    {
+      id: 'direct-hire',
+      title: 'Direct Hire',
+      description: 'Fill permanent roles with people who align with your team, culture, and goals.',
+    },
+    {
+      id: 'enterprise-rpo',
+      title: 'Enterprise RPO',
+      description: 'Scale hiring operations with a recruiting partner that can support multiple roles and functions.',
+    },
+    {
+      id: 'executive-search',
+      title: 'Executive Search',
+      description: 'Confidential search support for senior leaders and high-impact hiring decisions.',
+    },
+    {
+      id: 'hire-train-deploy',
+      title: 'Hire Train Deploy',
+      description: 'Build talent pipelines that can be trained to meet specific client or project requirements.',
+    },
+    {
+      id: 'staff-augmentation',
+      title: 'Staff Augmentation',
+      description: 'Extend your in-house team with specialists who can contribute immediately.',
+    },
+  ],
+}
+
+export const footerServiceSections = serviceMenuSections
 
 export const platformShowcase = {
   eyebrow: 'Products',   // ✅ small top label

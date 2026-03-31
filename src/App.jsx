@@ -12,6 +12,7 @@ import About2Page from './pages/About2.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import Contact2Page from './pages/Contact2.jsx'
 import ServicePage from './pages/ServicePage.jsx'
+import TalentSolutionsPage from './pages/TalentSolutionsPage.jsx'
 import PlatformPage from './pages/PlatformPage.jsx'
 
 function RouteContent() {
@@ -25,6 +26,10 @@ function RouteContent() {
     const serviceKey = pathname.split('/').filter(Boolean)[1]
 
     return <ServicePage serviceKey={serviceKey} />
+  }
+
+  if (pathname === '/talent-solutions') {
+    return <TalentSolutionsPage />
   }
 
   if (pathname.startsWith('/platforms/')) {
