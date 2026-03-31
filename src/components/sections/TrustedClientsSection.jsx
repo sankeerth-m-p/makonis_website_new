@@ -5,17 +5,17 @@ const marqueeClients = [...trustedClients, ...trustedClients]
 function TrustedClientsSection() {
   return (
     <section className="overflow-hidden bg-makonis-navy py-16">
-      <div className="container-default flex items-center gap-12">
+      <div className="container-default flex flex-col items-start gap-6 md:flex-row md:items-center md:gap-12">
 
         {/* LEFT */}
-        <div className="shrink-0 max-w-[220px]">
+        <div className="shrink-0 md:max-w-[220px]">
           <p className="text-makonis-white/90">
             Trusted by industry-leading enterprises
           </p>
         </div>
 
         {/* RIGHT */}
-        <div className="relative min-w-0 flex-1 overflow-hidden">
+        <div className="relative w-full min-w-0 flex-1 overflow-hidden">
 
           {/* fade edges */}
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-makonis-navy to-transparent" />
@@ -29,7 +29,7 @@ function TrustedClientsSection() {
                   flex items-center justify-center
                   shrink-0
                   px-5 py-3
-                  rounded-md   /* ✅ button radius */
+                  rounded-md
                   border border-black/10
                   bg-white
                   transition

@@ -27,23 +27,23 @@ const socialLinks = ['f', 'ig', 'x', 'in', 'yt']
 function Footer() {
   return (
     <footer className="bg-makonis-navy text-makonis-white">
-      <div className="container-default py-12  md:py-14">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr_1fr_1fr_1.8fr]">
-          <div className="flex items-start">
-            <a href="#" className="inline-flex items-center">
+      <div className="container-default py-12 md:py-14">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_1fr_1.8fr] lg:gap-10">
+          <div className="flex justify-center sm:col-span-2 sm:justify-start lg:col-span-1 lg:items-start">
+            <a href="#" className="inline-flex items-center justify-center">
               <img
                 src="/makonisLogo.png"
                 alt="Makonis"
-                className="h-24 w-auto brightness-0 invert"
+                className="h-16 w-auto brightness-0 invert sm:h-20 lg:h-24"
               />
             </a>
           </div>
 
           {footerColumns.map((column) => (
-            <div key={column.title}>
+            <div key={column.title} className="text-center sm:text-left">
               <p className="text-[15px] font-medium text-makonis-white">{column.title}</p>
 
-              <ul className="mt-5 space-y-4">
+              <ul className="mt-4 space-y-3 sm:mt-5 sm:space-y-4">
                 {column.links.map((link) => (
                   <li key={link}>
                     <a
@@ -58,9 +58,9 @@ function Footer() {
             </div>
           ))}
 
-          <div>
-            <p className="text-[15px] font-medium text-makonis-white">News</p>
-            <p className="mt-5  text-sm leading-6 text-makonis-white/90">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <p className="text-center text-[15px] font-medium text-makonis-white sm:text-left">News</p>
+            <p className="mt-4 text-center text-sm leading-6 text-makonis-white/90 sm:text-left sm:mt-5">
               Stay informed with the latest updates from Makonis on technology, talent, and innovation in enterprise solutions.
             </p>
 
@@ -69,30 +69,30 @@ function Footer() {
                 <input
                   type="email"
                   placeholder="your@email.com"
-                  className="w-full bg-transparent text-sm text-makonis-white placeholder:text-makonis-white/55 focus:outline-none"
+                  className="w-full bg-transparent text-center text-sm text-makonis-white placeholder:text-makonis-white/55 focus:outline-none sm:text-left"
                 />
               </div>
               <button
                 type="button"
-                className="rounded-md border border-makonis-white/25 px-4 py-2 text-sm text-makonis-white transition hover:border-makonis-white"
+                className="rounded-md border border-makonis-white/25 px-4 py-2 text-sm text-makonis-white transition hover:border-makonis-white sm:shrink-0"
               >
                 Subscribe
               </button>
             </div>
 
-            <p className="mt-4 max-w-[40ch] text-sm leading-6 text-makonis-white/65">
+            <p className="mx-auto mt-4 max-w-[40ch] text-center text-sm leading-6 text-makonis-white/65 sm:mx-0 sm:text-left">
               By subscribing you agree to our Privacy Policy and consent to receive updates from Makonis.
             </p>
           </div>
         </div>
 
         <div className="mt-10 border-t border-makonis-white/18 pt-6">
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-6">
+          <div className="flex flex-col gap-6 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-6">
               <p className="text-[15px] text-makonis-white/90">
                 &copy; 2024 Makonis. All rights reserved.
               </p>
-              <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 lg:justify-start">
                 {legalLinks.map((link) => (
                   <a
                     key={link}
@@ -105,7 +105,7 @@ function Footer() {
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center gap-4 lg:justify-start">
               {socialLinks.map((label) => (
                 <a
                   key={label}

@@ -166,6 +166,64 @@ function snap(
   onTween(tw)
 }
 
+// ─── Mobile-only static layout ───────────────────────────────────────────────
+
+function WhyUsMobile() {
+  return (
+    <section className="lg:hidden bg-makonis-white">
+      {/* Hero */}
+      <div className="relative h-[60vh] min-h-[360px] w-full">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url('${whyUs.main.image}')` }}
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(5,29,82,0.82)_30%,rgba(10,58,128,0.18)_100%)]" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 pb-8 pt-6 text-center text-white">
+          <p className="mb-3 text-[0.72rem] font-medium uppercase tracking-[0.18em] text-white/70">
+            {whyUs.main.eyebrow}
+          </p>
+          <h2
+            className="max-w-[14ch] whitespace-pre-line text-white"
+            style={{ fontSize: '30px', lineHeight: 1.2 }}
+          >
+            {whyUs.main.title}
+          </h2>
+          <p
+            className="mt-4 max-w-[28ch] font-light text-white/75"
+            style={{ fontSize: '15px', lineHeight: 1.6 }}
+          >
+            {whyUs.main.description}
+          </p>
+        </div>
+      </div>
+
+      {/* Cards */}
+      <div className="flex flex-col gap-3 p-4">
+        {whyUs.cards.map((card, index) => (
+          <div
+            key={card.title}
+            className="flex flex-col rounded-lg border border-black/10 bg-white p-5"
+          >
+            <div className="mb-3 flex size-9 items-center justify-center rounded-full border border-black/10 text-black/80">
+              <CompassIcon />
+            </div>
+            <h3 className="text-[18px] leading-[1.2]">{card.title}</h3>
+            <p className="mt-2 text-[13px] leading-[1.6] text-black/70">
+              {card.description}
+            </p>
+            <p className="mt-4 inline-flex items-center gap-2 text-sm font-medium">
+              <span>{card.ctaLabel || (index === 0 ? 'Learn' : 'Explore')}</span>
+              <ArrowIcon />
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+// ─── Desktop scroll-animated layout (untouched) ──────────────────────────────
+
 function WhyUsScrollSection() {
   const sectionRef = useRef(null)
   const containerRef = useRef(null)
@@ -342,7 +400,7 @@ function WhyUsScrollSection() {
   const stickyH = 'calc(100vh - var(--navbar-height))'
 
   return (
-    <section ref={sectionRef} className="relative h-[280vh] bg-makonis-white">
+    <section ref={sectionRef} className="relative hidden h-[280vh] bg-makonis-white lg:block">
       <div
         className="sticky top-[var(--navbar-height)] flex items-center justify-center overflow-hidden bg-makonis-white"
         style={{ height: stickyH }}
@@ -436,4 +494,13 @@ function WhyUsScrollSection() {
   )
 }
 
-export default WhyUsScrollSection
+// ─── Export: mobile + desktop together ───────────────────────────────────────
+
+export default function WhyUsSection() {
+  return (
+    <>
+      <WhyUsMobile />
+      <WhyUsScrollSection />
+    </>
+  )
+}
