@@ -19,7 +19,7 @@
 /* Base styles */
 @layer base {
   :root {
-    --navbar-height: 64px;
+    --navbar-height: 68px;
   }
 
   @media (max-width: 1023px) {
