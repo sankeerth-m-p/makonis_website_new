@@ -65,7 +65,7 @@ export const trustedClients = [
 ]
 
 export const whatWeBuild = {
-  eyebrow: 'Services',
+  eyebrow: 'IT Services',
   title: 'What we build',
   description:
     'Intelligent systems that solve real problems',
