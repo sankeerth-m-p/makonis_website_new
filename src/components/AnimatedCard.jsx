@@ -56,6 +56,7 @@ function AnimatedCard({
 
       <div
         ref={ref}
+        data-animated-card-root="true"
         className={`
           ${entry ? 'ac-entry' : ''}
           ${hover ? 'ac-hover' : ''}

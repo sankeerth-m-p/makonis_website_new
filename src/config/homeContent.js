@@ -77,6 +77,7 @@ export const serviceCards = {
     title: 'Artificial Intelligence',
     description: 'Machine learning models and intelligent automation',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80',
+    href: '/services/ai',
   },
 
   testing: {
@@ -84,6 +85,7 @@ export const serviceCards = {
     title: 'Testing services',
     description: 'Quality assurance across all platforms',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80',
+    href: '/services/testing',
   },
 
   integration: {
@@ -91,18 +93,91 @@ export const serviceCards = {
     title: 'System integration',
     description: 'Seamless connections between your systems',
     image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80',
+    href: '/services/integration',
   },
 
   iot: {
     label: 'IoT',
     title: 'IoT solutions',
     description: 'Connected devices and edge computing platforms',
+    href: '/services/iot',
   },
 
   data: {
     label: 'Data',
     title: 'Data analytics',
     description: 'Insights from data at enterprise scale',
+    href: '/services/data',
+  },
+}
+
+export const servicePageContent = {
+  ai: {
+    path: '/services/ai',
+    eyebrow: 'Services',
+    title: 'Artificial Intelligence',
+    description:
+      'We build practical AI systems that help teams automate work, surface better decisions, and move from experimentation to measurable outcomes.',
+    image: serviceCards.ai.image,
+    highlights: [
+      'Predictive models tailored to real operational data',
+      'Automation that removes repetitive manual work',
+      'Deployment patterns designed for reliability and governance',
+    ],
+  },
+  testing: {
+    path: '/services/testing',
+    eyebrow: 'Services',
+    title: 'Testing services',
+    description:
+      'Quality engineering across web, platform, and integration layers so releases stay predictable and confidence stays high.',
+    image: serviceCards.testing.image,
+    highlights: [
+      'Automation coverage for repeatable regression checks',
+      'Cross-platform validation for release readiness',
+      'Structured test strategies that scale with your product',
+    ],
+  },
+  integration: {
+    path: '/services/integration',
+    eyebrow: 'Services',
+    title: 'System integration',
+    description:
+      'We connect platforms, data, and workflows so your teams can operate from one coherent system instead of disconnected tools.',
+    image: serviceCards.integration.image,
+    highlights: [
+      'APIs and workflow orchestration across core systems',
+      'Data flow alignment between internal and external platforms',
+      'Implementation that minimizes disruption to existing teams',
+    ],
+  },
+  iot: {
+    path: '/services/iot',
+    eyebrow: 'Services',
+    title: 'IoT solutions',
+    description:
+      'Connected device strategies and edge-aware architectures for products that need to sense, respond, and report from the field.',
+    image:
+      'https://images.unsplash.com/photo-1518081461904-9d8f5a6f2f1d?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'Device-to-cloud connectivity with practical reliability controls',
+      'Edge workflows for latency-sensitive use cases',
+      'Telemetry, alerts, and observability built into the platform',
+    ],
+  },
+  data: {
+    path: '/services/data',
+    eyebrow: 'Services',
+    title: 'Data analytics',
+    description:
+      'Analytics foundations that turn scattered information into clear reporting, operational visibility, and stronger business decisions.',
+    image:
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'Reporting models that are easy to trust and maintain',
+      'Dashboards focused on the decisions teams actually make',
+      'Analytics pipelines that support scale without losing clarity',
+    ],
   },
 }
 
@@ -129,6 +204,7 @@ export const platformCards = [
     description: 'Recruitment operations designed around clearer hiring decisions.',
     image:
       'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80',
+    href: '/platforms/talent-track-pro',
   },
  {
   label: 'Finance',
@@ -136,13 +212,51 @@ export const platformCards = [
   description: 'Market analytics and trading insights',
   image:
     'https://atsdev.makonissoft.com/makonis-website-assets/assets/MTI10.avif',
+  href: '/platforms/trading-intelligence',
 },{
     title: 'Mako Plus',
     description: 'Healthcare workflows and records management in one platform.',
     image:
       'https://atsdev.makonissoft.com/makonis-website-assets/assets/Mako-Plus.jpg',
+    href: '/platforms/mako-plus',
   },
 ]
+
+export const platformPageContent = {
+  'talent-track-pro': {
+    eyebrow: 'Product',
+    title: 'Talent Track Pro',
+    description: 'Recruitment operations designed around clearer hiring decisions',
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80',
+    highlights: [
+      'Automated applicant tracking and lifecycle management',
+      'Real-time metrics on candidate engagement and hiring velocity',
+      'Collaborative tools connecting HR and technical teams',
+    ],
+  },
+  'trading-intelligence': {
+    eyebrow: 'Product',
+    title: 'Trading Intelligence',
+    description: 'Market analytics and trading insights',
+    image: 'https://atsdev.makonissoft.com/makonis-website-assets/assets/MTI10.avif',
+    highlights: [
+      'Low-latency data pipelines for real-time market observation',
+      'Predictive analytics fueled by continuous machine learning',
+      'Flexible dashboard construction for traders and management',
+    ],
+  },
+  'mako-plus': {
+    eyebrow: 'Product',
+    title: 'Mako Plus',
+    description: 'Healthcare workflows and records management in one platform.',
+    image: 'https://atsdev.makonissoft.com/makonis-website-assets/assets/Mako-Plus.jpg',
+    highlights: [
+      'Compliance-focused health record architecture',
+      'Seamless scheduling, telehealth, and clinic administration',
+      'Transparent billing workflows directly integrated with patient accounts',
+    ],
+  },
+}
 
 export const expertiseBand = {
   eyebrow: 'Semiconductor',
